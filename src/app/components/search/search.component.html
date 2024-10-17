@@ -1,0 +1,26 @@
+<div class="search__container">
+  <input
+    type="text"
+    class="search__input"
+    [(ngModel)]="searchQuery"
+    [class.active]="isSearchInputVisible"
+    (focus)="toggleFilterPanel(true)"
+    placeholder="Поисковый запрос"
+  />
+
+  <!-- Добавьте кнопку -->
+  <div
+    class="search"
+    *ngIf="toggleSearchInput"
+    (click)="toggleSearchInput()"
+  ></div>
+  <div
+    (click)="updateFilterHistory()"
+    class="header__add filters__search-button"
+  ></div>
+
+  <app-filter-panel
+    #filterPanelComponent
+    *ngIf="isFilterPanelVisible"
+  ></app-filter-panel>
+</div>

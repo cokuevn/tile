@@ -1,0 +1,75 @@
+.profile {
+  position: relative;
+}
+
+.profile__icon {
+  cursor: pointer;
+  background-image: url("../../../assets/images/AVA.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 35px;
+  height: 35px;
+}
+
+.profile__icon:hover {
+  transform: scale(1.1);
+}
+
+.profile__menu {
+  position: absolute;
+  top: 50px;
+  right: -12px;
+  width: 200px;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+  z-index: 100;
+}
+
+.profile__menu--active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.profile__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile__image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.profile__name {
+  font-weight: bold;
+}
+
+.profile__options {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+}
+
+.profile__option {
+  margin-bottom: 0.5rem;
+}
+
+.profile__option a {
+  color: #1074cc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.profile__option a:hover {
+  color: #005bb5;
+}

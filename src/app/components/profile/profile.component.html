@@ -1,0 +1,22 @@
+<div class="profile">
+  <div class="profile__icon" (click)="toggleProfileMenu()"></div>
+
+  <div
+    class="profile__menu"
+    [class.profile__menu--active]="isProfileMenuVisible"
+  >
+    <div class="profile__header">
+      <img
+        src="../../../assets/images/AVA.svg"
+        alt="Profile Picture"
+        class="profile__image"
+      />
+      <span class="profile__name">Иван Иванов</span>
+    </div>
+    <ul class="profile__options">
+      <li class="profile__option"><a href="#">Профиль</a></li>
+      <li class="profile__option"><a href="#">Настройки</a></li>
+      <li class="profile__option"><a href="#">Выход</a></li>
+    </ul>
+  </div>
+</div>

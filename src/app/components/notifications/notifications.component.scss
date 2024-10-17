@@ -1,0 +1,23 @@
+.notifications__container {
+  background: url(../../../assets/images/bell.svg);
+  width: 25px;
+  height: 25px;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.notifications {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 11px;
+  width: 21px;
+  height: 16px;
+  border-radius: 10px;
+  background-color: #cc1910;
+  color: aliceblue;
+  position: absolute;
+  top: -8px;
+  right: -3px;
+}

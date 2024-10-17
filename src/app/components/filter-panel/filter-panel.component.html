@@ -1,0 +1,59 @@
+<div class="filter-panel filter-panel--visible">
+  <div class="filter-panel__history history">
+    <h4 class="history__title">История</h4>
+    <span class="history__separator"></span>
+    <ul class="history__list">
+      <li class="history__item" *ngFor="let item of history$ | async">
+        {{ item }}
+      </li>
+    </ul>
+  </div>
+
+  <div class="filter-panel__filters filters">
+    <h4 class="filters__title">Фильтры</h4>
+
+    <div class="filters__group filters__group--author">
+      <p for="author" class="filters__author">Автор</p>
+      <input
+        type="text"
+        id="author"
+        class="filters__input filters__input--author"
+        placeholder="Имя или должность"
+        [(ngModel)]="authorInput"
+      />
+
+      <div class="filters__search-button"></div>
+    </div>
+
+    <div class="filters__options filters__options--top">
+      <div class="filters__option" *ngFor="let filter of topFilters">
+        <input
+          type="checkbox"
+          [id]="filter.id"
+          class="filters__checkbox"
+          [(ngModel)]="filter.checked"
+        />
+        <label [for]="filter.id" class="filters__label">{{
+          filter.label
+        }}</label>
+      </div>
+    </div>
+
+    <div class="filters__options filters__options--bottom">
+      <p class="filters__subtitle">Только</p>
+      <div class="filters__option-group">
+        <div class="filters__option" *ngFor="let filter of bottomFilters">
+          <input
+            type="checkbox"
+            [id]="filter.id"
+            class="filters__checkbox"
+            [(ngModel)]="filter.checked"
+          />
+          <label [for]="filter.id" class="filters__label">{{
+            filter.label
+          }}</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

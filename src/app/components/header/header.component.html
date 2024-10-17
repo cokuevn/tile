@@ -1,0 +1,83 @@
+<header class="header" [class.active]="isSearchInputVisible">
+  <div class="header__container header__container--left">
+    <!-- Кнопка "Назад" -->
+    <button class="header__back-button">
+      <img src="../../../assets/images/nav_icons/arrow_back.png" alt="Назад" />
+    </button>
+
+    <!-- Бургер-меню -->
+    <button class="header__burger-menu" (click)="toggleMenu()">
+      <span class="header__burger-line"></span>
+      <span class="header__burger-line"></span>
+      <span class="header__burger-line"></span>
+    </button>
+
+    <!-- Логотип -->
+    <div class="header__logo"></div>
+
+    <!-- Навигация -->
+    <nav class="header__navigation">
+      <ul class="header__navigation-list">
+        <li class="header__navigation-item">
+          <a class="header__navigation-link" href="#">
+            <img
+              class="header__icon"
+              src="../../../assets/images/nav_icons/link.png"
+              alt="Ссылки"
+            />
+            Ссылки
+          </a>
+        </li>
+        <li class="header__navigation-item">
+          <a class="header__navigation-link" href="#">
+            <img
+              class="header__icon"
+              src="../../../assets/images/nav_icons/contacts.svg"
+              alt="Контакты"
+            />
+            Контакты
+          </a>
+        </li>
+        <li class="header__navigation-item">
+          <a class="header__navigation-link" href="#">
+            <img
+              class="header__icon"
+              src="../../../assets/images/nav_icons/tag.svg"
+              alt="Теги"
+            />
+            Теги
+          </a>
+        </li>
+        <li class="header__navigation-item">
+          <a class="header__navigation-link" href="#">
+            <img
+              class="header__icon"
+              src="../../../assets/images/nav_icons/favorites.svg"
+              alt="Избранное"
+            />
+            Избранное
+          </a>
+        </li>
+        <li class="header__navigation-item">
+          <a class="header__navigation-link" href="#">
+            <img
+              class="header__icon"
+              src="../../../assets/images/nav_icons/history.svg"
+              alt="Посещения"
+            />
+            Посещения
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Поиск -->
+    <app-search (searchToggle)="onSearchToggle($event)"></app-search>
+  </div>
+
+  <!-- Информация о пользователе -->
+  <div class="header__user-info">
+    <app-notifications></app-notifications>
+    <app-profile class="profile"></app-profile>
+  </div>
+</header>

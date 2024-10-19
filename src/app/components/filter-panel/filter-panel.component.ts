@@ -39,7 +39,10 @@ export class FilterPanelComponent {
     const currentHistory = this.historySubject.getValue();
 
     if (searchQuery.trim() !== '') {
-      const newHistory = [...currentHistory, searchQuery.trim()];
+      if (currentHistory.length >= 4) {
+        currentHistory.pop(); // Удаляем последний элемент
+      }
+      const newHistory = [searchQuery.trim(), ...currentHistory];
 
       this.historySubject.next(newHistory);
     }

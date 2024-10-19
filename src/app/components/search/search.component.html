@@ -7,17 +7,16 @@
     (focus)="toggleFilterPanel(true)"
     placeholder="Поисковый запрос"
   />
-
-  <!-- Добавьте кнопку -->
-  <div
-    class="search"
-    *ngIf="toggleSearchInput"
-    (click)="toggleSearchInput()"
-  ></div>
-  <div
+  <a
+    *ngIf="isSearchInputVisible"
     (click)="updateFilterHistory()"
-    class="header__add filters__search-button"
-  ></div>
+    class="input__button"
+  >
+    Найти
+  </a>
+  <!-- Добавьте кнопку -->
+  <div class="search" (click)="toggleSearchInput()"></div>
+  <div class="header__add filters__search-button"></div>
 
   <app-filter-panel
     #filterPanelComponent

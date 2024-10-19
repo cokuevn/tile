@@ -10,23 +10,23 @@ import { CommonModule } from '@angular/common';
 import { FilterPanelComponent } from '../filter-panel/filter-panel.component';
 import { FormsModule } from '@angular/forms';
 
+const expandInputAnimation = trigger('expandInput', [
+  transition(':enter', [
+    style({ width: '0', opacity: 0 }),
+    animate('310ms ease-in-out', style({ width: '200px', opacity: 1 })),
+  ]),
+  transition(':leave', [
+    animate('310ms ease-in-out', style({ width: '0', opacity: 0 })),
+  ]),
+]);
+
 @Component({
   selector: 'app-search',
   standalone: true,
   imports: [CommonModule, FilterPanelComponent, FormsModule],
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
-  animations: [
-    trigger('expandInput', [
-      transition(':enter', [
-        style({ width: '0', opacity: 0 }),
-        animate('310ms ease-in-out', style({ width: '200px', opacity: 1 })),
-      ]),
-      transition(':leave', [
-        animate('310ms ease-in-out', style({ width: '0', opacity: 0 })),
-      ]),
-    ]),
-  ],
+  animations: [expandInputAnimation], // Используем вынесенную анимацию
 })
 export class SearchComponent {
   public searchQuery: string = '';
@@ -34,10 +34,10 @@ export class SearchComponent {
   public isFilterPanelVisible: boolean = false;
   @Output() public searchToggle = new EventEmitter<boolean>();
 
-  @ViewChild(FilterPanelComponent) filterPanelComponent!: FilterPanelComponent; // Добавлено
+  @ViewChild(FilterPanelComponent) filterPanelComponent!: FilterPanelComponent;
 
   public toggleFilterPanel(isVisible: boolean): void {
-    this.isFilterPanelVisible = true;
+    this.isFilterPanelVisible = isVisible;
   }
 
   public toggleSearchInput(): void {
@@ -47,8 +47,8 @@ export class SearchComponent {
 
   public updateFilterHistory(): void {
     if (this.filterPanelComponent) {
-      this.filterPanelComponent.updateHistory(this.searchQuery); // Передаем searchQuery
-      this.searchQuery = ''; // Очистка поля поиска
+      this.filterPanelComponent.updateHistory(this.searchQuery);
+      this.searchQuery = ''; // Очищаем поле поиска после обновления истории
     }
   }
 

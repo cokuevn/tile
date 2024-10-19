@@ -5,6 +5,10 @@
   position: relative;
   background-repeat: no-repeat;
   background-size: contain;
+  &:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
 }
 
 .notifications {

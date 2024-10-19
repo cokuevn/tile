@@ -10,7 +10,7 @@ import { catchError, map, take, tap } from 'rxjs/operators';
 })
 export class NotificationsComponent implements OnInit {
   protected notificationsSubject: BehaviorSubject<number> =
-    new BehaviorSubject<number>(0);
+    new BehaviorSubject<number>(1);
 
   ngOnInit(): void {
     this.startNotificationInterval();
@@ -19,7 +19,7 @@ export class NotificationsComponent implements OnInit {
   private startNotificationInterval(): void {
     interval(2500)
       .pipe(
-        map((value) => value * 3),
+        map((value) => (value + 2) * 3),
         take(5),
         tap({
           next: (value) => this.notificationsSubject.next(value),

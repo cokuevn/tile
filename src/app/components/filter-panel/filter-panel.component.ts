@@ -11,7 +11,6 @@ import { BehaviorSubject } from 'rxjs';
   styleUrl: './filter-panel.component.scss',
 })
 export class FilterPanelComponent {
-  // Изначальная история
   private historySubject = new BehaviorSubject<string[]>([
     'закрепить теги',
     'кнопка',
@@ -40,7 +39,7 @@ export class FilterPanelComponent {
 
     if (searchQuery.trim() !== '') {
       if (currentHistory.length >= 4) {
-        currentHistory.pop(); // Удаляем последний элемент
+        currentHistory.pop();
       }
       const newHistory = [searchQuery.trim(), ...currentHistory];
 

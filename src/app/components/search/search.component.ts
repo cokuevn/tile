@@ -26,7 +26,7 @@ const expandInputAnimation = trigger('expandInput', [
   imports: [CommonModule, FilterPanelComponent, FormsModule],
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
-  animations: [expandInputAnimation], // Используем вынесенную анимацию
+  animations: [expandInputAnimation],
 })
 export class SearchComponent {
   public searchQuery: string = '';
@@ -48,7 +48,7 @@ export class SearchComponent {
   public updateFilterHistory(): void {
     if (this.filterPanelComponent) {
       this.filterPanelComponent.updateHistory(this.searchQuery);
-      this.searchQuery = ''; // Очищаем поле поиска после обновления истории
+      this.searchQuery = '';
     }
   }
 

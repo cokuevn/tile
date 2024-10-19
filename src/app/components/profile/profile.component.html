@@ -11,7 +11,20 @@
         alt="Profile Picture"
         class="profile__image"
       />
-      <span class="profile__name">Иван Иванов</span>
+      <div [formGroup]="myGroup">
+        <input
+          type="text"
+          class="profile__name-input"
+          placeholder="имя"
+          formControlName="name"
+          *ngIf="isVisibleInput"
+        />
+      </div>
+
+      <div *ngIf="!isVisibleInput" class="profile__name">
+        {{ myGroup.value.name }}
+      </div>
+      <div (click)="toggleNameInput()" class="profile__name-edit">+</div>
     </div>
     <ul class="profile__options">
       <li class="profile__option"><a href="#">Профиль</a></li>
